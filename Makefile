@@ -31,9 +31,12 @@ config.h:
 
 clean:
 	@echo cleaning
-	@rm -f ${BIN} ${OBJ} tabbed-${VERSION}.tar.gz
+	@rm -f ${BIN} ${OBJ} 
 
-dist: clean
+distclean: clean
+	@rm -f config.h tabbed-${VERSION}.tar.gz
+
+dist: distclean
 	@echo creating dist tarball
 	@mkdir -p tabbed-${VERSION}
 	@cp -R LICENSE Makefile README config.def.h config.mk \
@@ -62,4 +65,4 @@ uninstall:
 	@rm -f "${DESTDIR}${MANPREFIX}/man1/tabbed.1"
 	@rm -f "${DESTDIR}${MANPREFIX}/man1/xembed.1"
 
-.PHONY: all options clean dist install uninstall
+.PHONY: all options clean distclean dist install uninstall
