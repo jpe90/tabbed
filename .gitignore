@@ -56,3 +56,4 @@ config.h
 *.orig
 *.rej
 tabbed.log
+xembed
